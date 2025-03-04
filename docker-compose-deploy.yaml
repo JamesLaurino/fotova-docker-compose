@@ -39,6 +39,4 @@ services:
 #volumes:
 #  mysql_data_test:
 
-
-
 # const apiUrl = 'http://localhost:8080/api';
