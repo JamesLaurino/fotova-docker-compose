@@ -25,6 +25,16 @@ services:
     networks:
       - my_network
 
+  mailHog:
+    image: mailhog/mailhog
+    container_name: mailhog_dev
+    restart: always
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - my_network
+
   redis:
     image: redis/redis-stack-server:latest
     container_name: redis-container
