@@ -2,12 +2,12 @@ version: '3.8'
 
 services:
   mysql:
-    image: jameslaurino/mysql:latest
+    image: mysql:latest
     container_name: mysql_dev
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: "1234"
-      MYSQL_DATABASE: "first_db"
+      MYSQL_DATABASE: "fotova_db_dev"
     ports:
       - "3306:3306"
     networks:
