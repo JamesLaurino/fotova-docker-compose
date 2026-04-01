@@ -55,6 +55,33 @@ services:
     volumes:
       - ollama_data:/root/.ollama
 
+  sonarqube:
+    image: sonarqube:lts-community
+    container_name: sonarqube_dev
+    restart: always
+    ports:
+      - "9000:9000"
+    networks:
+      - my_network
+    environment:
+      - SONARQUBE_JDBC_USERNAME=sonar
+      - SONARQUBE_JDBC_PASSWORD=sonarpass
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+
+  nexus:
+    image: sonatype/nexus3
+    container_name: nexus_dev
+    restart: always
+    ports:
+      - "8083:8081"
+    networks:
+      - my_network
+    volumes:
+      - nexus_data:/nexus-data
+
 networks:
   my_network:
     driver: bridge
@@ -62,3 +89,7 @@ networks:
 volumes:
   mysql_data:
   ollama_data:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_logs:
+  nexus_data:
