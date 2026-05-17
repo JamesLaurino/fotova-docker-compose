@@ -12,6 +12,9 @@ target/
 *.iml
 *.ipr
 
+### Logs ###
+./logs/fotova-controller.logs
+
 ### Eclipse ###
 .apt_generated
 .classpath
