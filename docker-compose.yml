@@ -44,17 +44,6 @@ services:
     networks:
       - my_network
 
-  ollama:
-    image: ollama/ollama:latest
-    container_name: ollama_dev
-    restart: always
-    ports:
-      - "11434:11434"
-    networks:
-      - my_network
-    volumes:
-      - ollama_data:/root/.ollama
-
   sonarqube:
     image: sonarqube:lts-community
     container_name: sonarqube_dev
@@ -133,7 +122,6 @@ networks:
 
 volumes:
   mysql_data:
-  ollama_data:
   sonarqube_data:
   sonarqube_extensions:
   sonarqube_logs:
